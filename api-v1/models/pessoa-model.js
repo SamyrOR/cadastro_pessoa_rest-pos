@@ -1,19 +1,11 @@
-function inserir() { }
+import db from "../utils/db.js";
+
+function inserir(pessoa, callBack) {
+  db.pessoasDB.insert(pessoa, callBack);
+}
 
 function listar(params, callBack) {
-  const objFake = [
-    {
-      id: 5,
-      nome: "Samyr Ribeiro",
-      email: "email@email.com",
-      telefone: "11-90011110",
-      organizacao: null,
-      tags: ["cinema", "trabalho"],
-    },
-  ];
-  let lista = objFake;
-  let error = null;
-  callBack(lista, error);
+  db.pessoasDB.find(params, callBack);
 }
 
 function atualizar() { }
